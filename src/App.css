@@ -17,6 +17,7 @@ body {
   text-align: center;
   width: 100%;
   position: relative;
+  /* background: #1a1a1a; */
 }
 
 .App-logo {
@@ -57,11 +58,32 @@ body {
 
 }
 
+.home-text-content {
+  position: relative;
+
+}
+
 .home-img-wrapper {
-  background-image:url('imgs/profile_full_length_opt.jpg');
+  background:
+  /* url('imgs/profile_full_length_opt.jpg'); */
+  url('imgs/sunglasses_cartoon_NOWORDS_opt.jpg');
+
+
+  /* url('imgs/profile_full_length_opt.jpg'); */
+
+
+  /* full profile photo w/ overlay
+  linear-gradient(
+      rgba(12, 31, 45, 0.3),
+      rgba(12, 31, 45, 0.3)
+    ), url('imgs/profile_full_length_opt.jpg'); */
+
   background-repeat: no-repeat;
 
 }
+
+
+/* desktop */
 
 @media only screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1)  {
 
@@ -72,23 +94,25 @@ body {
   }
 
   .home-text-content {
-    background-color: blue;
-    position: relative;
     width: 43%;
     height: 100%;
     flex: 1 1 auto;
+    min-width: 250px;
+
   }
 
   .home-img-wrapper {
-    background-color: red;
-    position: relative;
     width: 56.25%;
+    position: relative;
+    width: 100%;
     height: 100%;
     flex: 1 1 auto;
     /* background-image:url('imgs/profile_full_length_opt.jpg'); */
     background-size: cover;
     /* background-repeat: no-repeat; */
-    background-position: center;
+    background-position-x: center;
+    background-position-y: center;
+    min-width: 300px;
 
   }
 
@@ -118,7 +142,6 @@ body {
 
   .home-text-content {
     background-color: blue;
-    position: relative;
     height: 43%;
     width: 100%;
     flex: 1 1 auto;

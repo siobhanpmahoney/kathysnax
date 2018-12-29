@@ -11,6 +11,7 @@ class ShowsContainer extends React.Component {
   }
 
   componentDidMount() {
+              // date: `${new Date(e.start.datetime).toLocaleString("en-us", { month: "short" })} ${new Date(e.start.datetime).getDay()} ${new Date(e.start.datetime).getYear()}`,
     fetchTourDates()
     // .then(res => console.log(res.resultsPage.results.event))
     .then(res => this.setState({
@@ -18,7 +19,9 @@ class ShowsContainer extends React.Component {
         return {
           id: e.id,
           displayName: e.displayName,
-          date: `${new Date(e.start.datetime).toLocaleString("en-us", { month: "short" })} ${new Date(e.start.datetime).getDay()} ${new Date(e.start.datetime).getYear()}`,
+          nonFormattedDate: e.start,
+          date: `${new Date(e.start.datetime).toLocaleString("en-us", { month: "short" })} ${e.start.date.split("-")[2]} ${e.start.date.split("-")[0]}`,
+          dateSort: Date.parse(new Date(e.start.datetime)),
           venue_name: e.venue.displayName,
           venue_uri: e.venue.uri,
           venue_address: e.location.city,
