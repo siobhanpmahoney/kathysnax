@@ -3,9 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <div className='home-container page'>
-    <div className='home-text-content'>
-          here
-        </div>
+
 
 
       <div className='home-img-wrapper'>
@@ -13,6 +11,9 @@ const Home = () => {
           here
         </div>
       </div>
+      <div className='home-text-content'>
+            here
+          </div>
     </div>
   )
 }

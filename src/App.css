@@ -17,7 +17,8 @@ body {
   text-align: center;
   width: 100%;
   position: relative;
-  background: #1a1a1a;
+  /* background: #1a1a1a; */
+
 }
 
 .App-logo {
@@ -26,7 +27,7 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,6 +56,9 @@ body {
   /* width: 100vw; */
   position: relative;
   flex: 1 1 auto;
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  /* background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%); */
+  /* background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); */
 
 }
 
@@ -66,7 +70,7 @@ body {
 .home-img-wrapper {
   background:
   /* url('imgs/profile_full_length_opt.jpg'); */
-  url('imgs/cropped_cartoon.png');
+  url('imgs/cropped_cartoon_2.png');
 
 
   /* url('imgs/profile_full_length_opt.jpg'); */
@@ -110,7 +114,7 @@ body {
     /* background-image:url('imgs/profile_full_length_opt.jpg'); */
     background-size: contain;
     /* background-repeat: no-repeat; */
-    background-position-x: center;
+    background-position-x: left;
     background-position-y: bottom;
     min-width: 250px;
 
