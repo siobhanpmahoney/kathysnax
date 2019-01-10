@@ -1,6 +1,10 @@
 import React from 'react'
 
 class ShowItem extends React.Component {
+
+  onOpenTicketDetails = () => {
+    window.open(this.props.show.event_uri, "_blank")
+  }
 //   dateDisplay: "Jan 23"
 // dateSort: 1548291600000
 // day: "Wed"
@@ -16,12 +20,25 @@ class ShowItem extends React.Component {
     return (
       <div className='show-item'>
         <div className='show-datetime'>
+          {this.props.show.date.month} {this.props.show.date.date} {this.props.show.date.year == new Date().getFullYear() ? "" : this.props.show.date.year}
         </div>
 
         <div className='show-event-title'>
+          {this.props.show.event_name}
         </div>
 
-        <div className='show-venue-details'>
+        <div className='show-location-details'>
+          <span className='show-location-city'>
+            {this.props.show.venue_address} <span> </span>
+          </span>
+
+          <span className="show-venue">
+             @<span> </span>{this.props.show.venue_name}
+          </span>
+        </div>
+
+        <div className='show-tix-details'>
+          <button onClick={this.onOpenTicketDetails}>Tix</button>
         </div>
       </div>
     )

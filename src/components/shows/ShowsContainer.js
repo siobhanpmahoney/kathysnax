@@ -12,27 +12,28 @@ class ShowsContainer extends React.Component {
   }
 
   componentDidMount() {
-              // date: `${new Date(e.start.datetime).toLocaleString("en-us", { month: "short" })} ${new Date(e.start.datetime).getDay()} ${new Date(e.start.datetime).getYear()}`,
-              // dateDisplay: `${new Date(e.start.datetime).toLocaleString("en-us", { month: "short" })} ${e.start.date.split("-")[2]} ${e.start.date.split("-")[0]}`,
-              // dateSort: Date.parse(new Date(e.start.datetime)),
-              // nonFormattedDate: e.start,
-              // time: new Date(e.start.datetime).getHours.toString() + new Date(e.start.datetime).getMinutes() == 0 ? "" : ``,
     fetchTourDates()
-    // .then(res => console.log(res.resultsPage.results.event))
     .then(res => this.setState({
       shows: res.resultsPage.results.event.map((e) => {
         let dt = this.getDateTime(e.start.datetime, e.start.time)
-         return {
+        let va = e.venue.metroArea.country.displayName == "US" ? e.location.city.split(", ").slice(0, e.location.city.split(", ").length-1).join(", ") : e.location.city
+
+
+        return {
           id: e.id,
-          displayName: e.displayName,
+          event_name: e.displayName,
+          event_uri: e.uri,
           venue_name: e.venue.displayName,
           venue_uri: e.venue.uri,
-          venue_address: e.location.city,
+          venue_address: va,
           metro_area: e.venue.metroArea.displayName,
-          dateDisplay: dt.dateDisplay,
-          day: dt.day,
+
           timeDisplay: dt.timeDisplay,
-          dateSort: dt.dateSort
+          // dateDisplay: dt.dateDisplay,
+          date: {day: dt.day, month: dt.monthDisplay, date: dt.dateDisplay, year: dt.yearDisplay},
+          dateSortVal: dt.dateSort,
+
+
 
         }
       })
@@ -63,7 +64,10 @@ getDateTime = (dt, t) => { // date = full datetime, time = time
 
   let dtHash = {
     day: datetime.toLocaleString("en-us", { weekday: "short" }),
-    dateDisplay: `${raw.month} ${raw.date}`,
+    oldDate: `${raw.month} ${raw.date}`,
+    monthDisplay: raw.month,
+    dateDisplay: raw.date,
+    yearDisplay: raw.year,
     timeDisplay:  `${raw.time[0] > 12 ? (raw.time[0] - 12).toString() : raw.time[0].toString()}` + `${raw.time[1] == 0 ? "" : `:${raw.time[1].toString()}`}` + raw.ampm,
     // timeDisplay:  `${raw.hours > 12 ? (raw.hours - 12).toString() : raw.hours.toString()}` + `${raw.minutes == 0 ? "" : `:${raw.minutes.toString()}`}` + raw.ampm,
     dateSort: Date.parse(datetime),
@@ -81,13 +85,12 @@ render() {
   if (this.state.shows.length == 0) {
     return <div>Loading...</div>
   } else {
-
-  return (
-    <div className="show-container">
-      <ShowList shows={this.state.shows} />
-    </div>
-  )
-}
+    return (
+      <div className="show-container">
+        <ShowList shows={this.state.shows} />
+      </div>
+    )
+  }
 }
 }
 
