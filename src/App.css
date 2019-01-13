@@ -11,17 +11,20 @@
 html {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 body {
   width: 100%;
   position: relative;
+  height: 100%;
 }
 
 .App {
   text-align: center;
   width: 100%;
   position: relative;
+  height: 100%;
   /* background: #1a1a1a; */
 
 
@@ -91,6 +94,107 @@ body {
   background-repeat: no-repeat;
 
 }
+
+
+/* BEGIN /music styles  */
+.header-1 {
+	font-size: 24px;
+	padding: 3px;
+	margin: 6px;
+	font-weight: bold;
+}
+
+.album-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	display: flex;
+	padding: 8px;
+	flex: 1 1 auto;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	flex-direction: row;
+	min-width: 450px;
+}
+
+.album-img-wrapper,
+.album-content-wrapper,
+.album-title,
+.buttons-wrapper,
+.tracklist-wrapper {
+	padding: 3px;
+	margin: 6px;
+}
+
+.album-img-wrapper {
+	position: relative;
+	/* width: 55%; */
+	width: 32%;
+	min-width: 200px;
+	/* min-width: 300px; */
+
+	flex-flow: column wrap;
+	align-self: center;
+	position: relative;
+	display: flex;
+	flex: 1 1 auto;
+	/* margin: 4px; */
+	padding: 3px;
+}
+
+.album-img {
+	width: 100%;
+	/* max-width: 500px; */
+	/* min-width: 300px; */
+	padding: 3px;
+	margin: 3px;
+	justify-content: center;
+	position: relative;
+	text-align: center;
+	align-self: center;
+}
+
+.album-content-wrapper {
+	position: relative;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	flex-flow: column wrap;
+	align-self: flex-start;
+	flex: 1 1 auto;
+	/* margin: 4px; */
+	padding: 3px;
+	/* min-width: 350px; */
+}
+
+.album-title {
+	font-weight: bold;
+}
+
+.buttons-wrapper {
+	text-align: center;
+}
+
+.tracklist-wrapper {
+}
+
+button {
+	border-radius: 0px;
+	padding: 8px 2px;
+	margin: 0px 6px;
+	width: 75px;
+	font-size: 12px;
+	background: none !important;
+	color: darkslategray;
+}
+
+
+/* END /music styles */
+
+
+
+
 
 
 /* desktop */
